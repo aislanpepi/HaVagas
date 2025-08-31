@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">HaVagas</string>
+    <string name="havagas">HaVagas</string>
+    <string name="nome_completo">Nome Completo</string>
+    <string name="email">E-mail</string>
+    <string name="desejo_receber_e_mails_com_atualiza_es_de_oportunidades">Desejo receber e-mails com atualizações de oportunidades</string>
+    <string name="telefone">Telefone</string>
+    <string name="tipo_de_telefone">Tipo de Telefone</string>
+    <string name="comercial">Comercial</string>
+    <string name="residencial">Residencial</string>
+    <string name="telefone_celular">Telefone Celular</string>
+    <string name="inputtelefone_celular">Telefone Celular</string>
+    <string name="masculino">Masculino</string>
+    <string name="feminino">Feminino</string>
+    <string name="data_de_nascimento">Data de Nascimento</string>
+    <string name="vagas_de_interesse">Vagas de Interesse</string>
+    <string name="salvar">Salvar</string>
+    <string name="limpar">Limpar</string>
+</resources>
