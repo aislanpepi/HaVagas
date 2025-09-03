@@ -6,6 +6,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +27,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val spinner = binding.formacao
+        val educational = resources.getStringArray(R.array.form_array)
+
+        ArrayAdapter.createFromResource(this,
+            R.array.form_array,
+            android.R.layout.simple_spinner_item)
+            .also { adapter -> adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
+                spinner.adapter = adapter
+            }
+
+        var selectedEdu: String = ""
+
+        spinner.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>,
+                                        view: View, position: Int, id: Long) {
+               selectedEdu = educational[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
+
         binding.cbTel.setOnClickListener { showMobilePhone() }
         binding.submit
             .setOnClickListener {
@@ -33,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                     binding.telefone.text.toString(),
                     binding.telefoneCel.text.toString(),
                     binding.dataNasc.text.toString(),
-                    "Graduacao",
+                    selectedEdu,
                     getGender(),
                     binding.checkBoxEmail.isChecked))
             }
