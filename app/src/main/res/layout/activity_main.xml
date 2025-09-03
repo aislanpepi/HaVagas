@@ -58,7 +58,7 @@
                 android:lines="1"
                 android:minHeight="48dp"
                 android:hint="@string/email"
-                android:ems="10"
+                android:ems="50"
                 android:inputType="textEmailAddress" />
 
             <EditText
@@ -97,12 +97,14 @@
             </RadioGroup>
 
             <CheckBox
+                android:id="@+id/cbTel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/telefone_celular"/>
 
             <EditText
                 android:paddingStart="5dp"
+                android:minHeight="48dp"
                 android:paddingEnd="5dp"
                 android:layout_marginTop="10dp"
                 android:id="@+id/telefoneCel"
@@ -116,32 +118,35 @@
                 android:inputType="phone"/>
 
             <RadioGroup
+                android:id="@+id/gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <RadioButton
+                    android:id="@+id/male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/masculino"/>
                 <RadioButton
+                    android:id="@+id/female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/feminino"/>
             </RadioGroup>
 
             <EditText
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:layout_marginBottom="10dp"
                 android:id="@+id/data_nasc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:background="@color/whitegray"
-                android:hint="@string/data_de_nascimento"
                 android:ems="10"
+                android:maxLength="10"
+                android:hint="@string/data_de_nascimento"
                 android:inputType="date"
                 android:minHeight="48dp"
-                />
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp" />
             <Spinner
                 android:id="@+id/formacao"
                 android:layout_width="match_parent"
@@ -176,10 +181,8 @@
                     android:layout_marginStart="10dp"
                     android:text="@string/limpar" />
             </GridLayout>
-
         </LinearLayout>
     </ScrollView>
-
 
 
 
