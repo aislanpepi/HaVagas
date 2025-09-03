@@ -1,7 +1,5 @@
 package br.edu.ifsp.scl.sc3038939.havagas
 
-import java.time.LocalDate
-
 class User {
     private var name: String
     private var email: String
@@ -13,14 +11,14 @@ class User {
     private var updateEmails: Boolean = false
 
     constructor(
-        updateEmails: Boolean,
-        gender: String,
-        educational: String,
-        dateBirth: String,
-        cellphone: String,
-        phone: String,
+        name: String,
         email: String,
-        name: String
+        phone: String,
+        cellphone: String,
+        dateBirth: String,
+        educational: String,
+        gender: String,
+        updateEmails: Boolean
     ) {
         this.updateEmails = updateEmails
         this.gender = gender
@@ -29,17 +27,23 @@ class User {
         if(!cellphone.contains("^[0-9]{10,11}$"))
             this.cellphone = ""
         this.cellphone = cellphone
-        if(!phone.contains("[0-9]{10,10}"))
+        if(!phone.contains(Regex("[0-9]{10}")))
             throw IllegalStateException("Numero de telefone invalido")
         this.phone = phone
-        if(!email.contains("^[a-zA-Z0-9\\.]{2,}[@][a-zA-Z0-9\\.]{2,}[\\.com]\$|^^[a-zA-Z0-9\\.]{2,}[@][a-zA-Z0-9\\.]{2,}[\\.com\\.br]\$"))
+        if(!email.contains(Regex("^[a-zA-Z0-9.]{2,}@[a-zA-Z0-9.]{2,}[.com]$|^[a-zA-Z0-9.]{2,}@[a-zA-Z0-9.]{2,}[.combr]$")))
             throw IllegalStateException("E-mail invalido.")
         this.email = email
         this.name = name
     }
 
     override fun toString(): String {
-        return "User(name='$name', email='$email', phone='$phone', cellphone='$cellphone', dateBirth='$dateBirth', educational='$educational', gender='$gender', updateEmails=$updateEmails)"
+        return "Name='$name'\n" +
+                "E-mail='$email'\n" +
+                "Telephone='$phone'\n" +
+                "Cellphone='$cellphone'\n" +
+                "Date of Birth='$dateBirth'\n" +
+                "Educational='$educational'\n" +
+                "Gender='$gender"
     }
 
 

@@ -23,12 +23,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflate     r)
         setContentView(binding.root)
         binding.cbTel.setOnClickListener { showMobilePhone() }
         binding.submit
             .setOnClickListener {
-
+                println(User(binding.nome.text.toString(),
+                    binding.email.text.toString(),
+                    binding.telefone.text.toString(),
+                    binding.telefoneCel.text.toString(),
+                    binding.dataNasc.text.toString(),
+                    "Graduacao",
+                    getGender(),
+                    binding.checkBoxEmail.isChecked))
             }
 
         binding.dataNasc.addTextChangedListener(object: TextWatcher{
@@ -61,5 +68,11 @@ class MainActivity : AppCompatActivity() {
             binding.telefoneCel.visibility = View.VISIBLE
         else
             binding.telefoneCel.visibility = View.GONE
+    }
+    fun getGender(): String {
+        val male = binding.male
+        val fem = binding.female
+        if(male.isChecked) return male.text.toString()
+        return fem.text.toString()
     }
 }
