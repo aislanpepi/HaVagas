@@ -1,23 +1,13 @@
 package br.edu.ifsp.scl.sc3038939.havagas
 
-import android.app.Dialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.widget.addTextChangedListener
 import br.edu.ifsp.scl.sc3038939.havagas.databinding.ActivityMainBinding
-import kotlinx.coroutines.selects.select
-import org.w3c.dom.Text
-import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,14 +40,17 @@ class MainActivity : AppCompatActivity() {
                     "Graduação", "Especialização" -> {
                         binding.instituicao.visibility = View.VISIBLE
                         binding.titleMon.visibility = View.GONE
+                        binding.orientator.visibility = View.GONE
                     }
                     "Mestrado", "Doutorado" -> {
                         binding.instituicao.visibility = View.VISIBLE
                         binding.titleMon.visibility = View.VISIBLE
+                        binding.orientator.visibility = View.VISIBLE
                     }
                     "Fundamental", "Medio" -> {
                         binding.instituicao.visibility = View.GONE
                         binding.titleMon.visibility = View.GONE
+                        binding.orientator.visibility = View.GONE
                     }
                 }
             }
@@ -75,10 +68,28 @@ class MainActivity : AppCompatActivity() {
                     binding.dataNasc.text.toString(),
                     selectedEdu,
                     binding.anoFin.text.toString().toInt(),
+                    binding.titleMon.text.toString(),
+                    binding.instituicao.text.toString(),
+                    binding.orientator.text.toString(),
                     getGender(),
                     binding.vagas.text.toString(),
                     binding.checkBoxEmail.isChecked))
             }
+        binding.clear.setOnClickListener {
+            binding.nome.text.clear()
+            binding.checkBoxEmail.isChecked = false
+            binding.cbTel.isChecked = false
+            binding.email.text.clear()
+            binding.telefone.text.clear()
+            binding.telefoneCel.text.clear()
+            binding.dataNasc.text.clear()
+            binding.anoFin.text.clear()
+            binding.orientator.text.clear()
+            binding.instituicao.text.clear()
+            binding.vagas.text.clear()
+            binding.titleMon.text.clear()
+            binding.dataNasc.text.clear()
+        }
 
         binding.dataNasc.addTextChangedListener(object: TextWatcher{
             override fun afterTextChanged(s: Editable?) {
