@@ -15,6 +15,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import br.edu.ifsp.scl.sc3038939.havagas.databinding.ActivityMainBinding
+import kotlinx.coroutines.selects.select
 import org.w3c.dom.Text
 import java.time.LocalDate
 
@@ -38,15 +39,28 @@ class MainActivity : AppCompatActivity() {
                 spinner.adapter = adapter
             }
 
-        var selectedEdu: String = ""
+        var selectedEdu = ""
 
         spinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>,
                                         view: View, position: Int, id: Long) {
                selectedEdu = educational[position]
+                when (selectedEdu) {
+                    "Graduação", "Especialização" -> {
+                        binding.instituicao.visibility = View.VISIBLE
+                        binding.titleMon.visibility = View.GONE
+                    }
+                    "Mestrado", "Doutorado" -> {
+                        binding.instituicao.visibility = View.VISIBLE
+                        binding.titleMon.visibility = View.VISIBLE
+                    }
+                    "Fundamental", "Medio" -> {
+                        binding.instituicao.visibility = View.GONE
+                        binding.titleMon.visibility = View.GONE
+                    }
+                }
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
@@ -60,7 +74,9 @@ class MainActivity : AppCompatActivity() {
                     binding.telefoneCel.text.toString(),
                     binding.dataNasc.text.toString(),
                     selectedEdu,
+                    binding.anoFin.text.toString().toInt(),
                     getGender(),
+                    binding.vagas.text.toString(),
                     binding.checkBoxEmail.isChecked))
             }
 
