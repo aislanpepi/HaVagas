@@ -154,6 +154,39 @@
                 android:background="@color/whitegray"
                 android:minHeight="48dp"/>
             <EditText
+                android:id="@+id/anoFin"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:hint="@string/ano_formatura_conclus_o"
+                android:visibility="gone"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:minHeight="48dp"/>
+            <EditText
+                android:id="@+id/instituicao"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:hint="@string/institui_o"
+                android:visibility="gone"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:minHeight="48dp"/>
+            <EditText
+                android:id="@+id/titleMon"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:hint="@string/titutlo_da_monografia"
+                android:visibility="gone"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:minHeight="48dp"/>
+            <EditText
                 android:id="@+id/vagas"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"

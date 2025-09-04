@@ -83,10 +83,16 @@ class MainActivity : AppCompatActivity() {
                 count: Int
             ) {
                 val str = binding.dataNasc.text.toString()
-                if(str.length == 2 && !str.contains("/")) binding.dataNasc.text.append("/")
-                if(str.length == 5 && Regex("/").findAll(str).count() != 2)binding.dataNasc.text.append("/")
+                if(str.length == 2 && !str.contains("/"))
+                    binding.dataNasc.text.append("/")
+                if(str.length == 5 && Regex("/").findAll(str).count() != 2)
+                    binding.dataNasc.text.append("/")
             }
         })
+    }
+
+    fun showEducational(){
+
     }
 
     fun showMobilePhone(){
