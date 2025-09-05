@@ -1,12 +1,19 @@
 package br.edu.ifsp.scl.sc3038939.havagas
 
+import android.R.attr.focusable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.PopupWindow
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material3.TextButton
 import br.edu.ifsp.scl.sc3038939.havagas.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +24,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        val inflater = LayoutInflater.from(this)
+        val popupView = inflater.inflate(R.layout.popup,null)
         setContentView(binding.root)
 
         val spinner = binding.formacao
@@ -60,21 +69,48 @@ class MainActivity : AppCompatActivity() {
 
         binding.cbTel.setOnClickListener { showMobilePhone() }
         binding.submit
-            .setOnClickListener {
-                println(User(binding.nome.text.toString(),
-                    binding.email.text.toString(),
-                    binding.telefone.text.toString(),
-                    binding.telefoneCel.text.toString(),
-                    binding.dataNasc.text.toString(),
-                    selectedEdu,
-                    binding.anoFin.text.toString().toInt(),
-                    binding.titleMon.text.toString(),
-                    binding.instituicao.text.toString(),
-                    binding.orientator.text.toString(),
-                    getGender(),
-                    binding.vagas.text.toString(),
-                    binding.checkBoxEmail.isChecked))
-            }
+        binding.submit.setOnClickListener {
+            user = User(
+                binding.nome.text.toString(),
+                binding.email.text.toString(),
+                binding.telefone.text.toString(),
+                binding.telefoneCel.text.toString(),
+                binding.dataNasc.text.toString(),
+                selectedEdu,
+                binding.anoFin.text.toString().toIntOrNull() ?: 0,
+                binding.titleMon.text.toString(),
+                binding.instituicao.text.toString(),
+                binding.orientator.text.toString(),
+                getGender(),
+                binding.vagas.text.toString(),
+                binding.checkBoxEmail.isChecked
+            )
+
+            val inflater = LayoutInflater.from(this)
+            val popupView = inflater.inflate(R.layout.popup, null)
+
+            popupView.findViewById<TextView>(R.id.nome).text = binding.nome.text
+            popupView.findViewById<TextView>(R.id.email).text = binding.email.text
+            popupView.findViewById<TextView>(R.id.telefone).text = binding.telefone.text
+            popupView.findViewById<TextView>(R.id.data_nasc).text = binding.dataNasc.text
+            popupView.findViewById<TextView>(R.id.anoFin).text = binding.anoFin.text
+            popupView.findViewById<TextView>(R.id.vagas).text = binding.vagas.text
+            if(getGender() == "Masculino")
+                popupView.findViewById<TextView>(R.id.gender).text = binding.male.text
+            else
+                popupView.findViewById<TextView>(R.id.gender).text = binding.female.text
+            if(binding.cbTel.isChecked)
+                popupView.findViewById<TextView>(R.id.telefoneCel).visibility = View.VISIBLE
+                popupView.findViewById<TextView>(R.id.telefoneCel).text = binding.telefoneCel.text
+
+
+
+            val popup = PopupWindow(popupView, 800, 800, true)
+            popup.isOutsideTouchable = true
+            popup.setBackgroundDrawable(null) // ou um drawable se quiser fechar ao tocar fora
+            popup.showAtLocation(binding.root, Gravity.CENTER, 0, 0)
+        }
+
         binding.clear.setOnClickListener {
             binding.nome.text.clear()
             binding.checkBoxEmail.isChecked = false
@@ -116,10 +152,6 @@ class MainActivity : AppCompatActivity() {
                     binding.dataNasc.text.append("/")
             }
         })
-    }
-
-    fun showEducational(){
-
     }
 
     fun showMobilePhone(){

@@ -52,6 +52,8 @@ class User {
         this.monography = monography
     }
 
+
+
     override fun toString(): String {
         return "Nome='$name'\n" +
                 "E-mail='$email'\n" +

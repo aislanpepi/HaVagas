@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/whitegray">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="30dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:paddingTop="15dp"
+                android:id="@+id/nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:maxLines="1"
+                android:minHeight="48dp"
+                android:hint="@string/nome_completo"
+                />
+
+            <TextView
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:paddingTop="15dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:maxLines="1"
+                android:minHeight="48dp"
+                android:hint="@string/email"
+                android:ems="50" />
+
+            <TextView
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:paddingTop="15dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/telefone"
+                android:maxLength="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:hint="@string/telefone"
+                android:maxLines="1"
+                android:minHeight="48dp"
+                tools:layout_editor_absoluteY="292dp"
+                android:ems="10" />
+
+            <TextView
+                android:paddingStart="5dp"
+                android:minHeight="48dp"
+                android:paddingEnd="5dp"
+                android:paddingTop="15dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/telefoneCel"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:hint="@string/inputtelefone_celular"
+                android:visibility="gone"
+                android:ems="10" />
+
+            <TextView
+                android:paddingStart="5dp"
+                android:minHeight="48dp"
+                android:paddingEnd="5dp"
+                android:paddingTop="15dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/gender"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:hint="@string/sexo"
+                android:visibility="visible"
+                android:ems="10" />
+
+
+            <TextView
+                android:id="@+id/data_nasc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="15dp"
+                android:background="@color/whitegray"
+                android:ems="10"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:hint="@string/data_de_nascimento"
+                android:minHeight="48dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp" />
+            <TextView
+                android:id="@+id/formacao"
+                android:hint="@string/forma_o"
+                android:paddingTop="15dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:minHeight="48dp"/>
+            <TextView
+                android:id="@+id/anoFin"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:hint="@string/ano_formatura_conclus_o"
+                android:visibility="visible"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:maxLines="1"
+                android:paddingTop="15dp"
+                android:maxLength="4"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:minHeight="48dp"/>
+            <TextView
+                android:id="@+id/instituicao"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:hint="@string/institui_o"
+                android:visibility="gone"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:minHeight="48dp"/>
+            <TextView
+                android:id="@+id/titleMon"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:hint="@string/titutlo_da_monografia"
+                android:visibility="gone"
+                android:maxLines="1"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:minHeight="48dp"/>
+            <TextView
+                android:id="@+id/orientator"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:hint="@string/orientador"
+                android:visibility="gone"
+                android:paddingStart="5dp"
+                android:maxLines="1"
+                android:paddingEnd="5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                android:minHeight="48dp"/>
+            <TextView
+                android:paddingTop="15dp"
+                android:id="@+id/vagas"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:layout_marginTop="10dp"
+                android:hint="@string/vagas_de_interesse"
+                android:minHeight="48dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegray"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

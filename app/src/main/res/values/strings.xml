@@ -20,4 +20,7 @@
     <string name="institui_o">Instituição</string>
     <string name="titutlo_da_monografia">Titutlo da Monografia</string>
     <string name="orientador">Orientador</string>
+    <string name="textview">TextView</string>
+    <string name="sexo">Sexo</string>
+    <string name="forma_o">Formação</string>
 </resources>
