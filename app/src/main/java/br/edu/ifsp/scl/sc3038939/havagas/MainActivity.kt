@@ -1,6 +1,5 @@
 package br.edu.ifsp.scl.sc3038939.havagas
 
-import android.R.attr.focusable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,9 +10,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.PopupWindow
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material3.TextButton
 import br.edu.ifsp.scl.sc3038939.havagas.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -97,9 +94,10 @@ class MainActivity : AppCompatActivity() {
                 popupView.findViewById<TextView>(R.id.gender).text = binding.male.text
             else
                 popupView.findViewById<TextView>(R.id.gender).text = binding.female.text
-            if(binding.cbTel.isChecked)
+            if(binding.cbTel.isChecked) {
                 popupView.findViewById<TextView>(R.id.telefoneCel).visibility = View.VISIBLE
                 popupView.findViewById<TextView>(R.id.telefoneCel).text = binding.telefoneCel.text
+            }
             popupView.findViewById<TextView>(R.id.formacao).text = selectedEdu
 
 
