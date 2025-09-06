@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val inflater = LayoutInflater.from(this)
-        val popupView = inflater.inflate(R.layout.popup,null)
         setContentView(binding.root)
 
         val spinner = binding.formacao
@@ -102,12 +100,12 @@ class MainActivity : AppCompatActivity() {
             if(binding.cbTel.isChecked)
                 popupView.findViewById<TextView>(R.id.telefoneCel).visibility = View.VISIBLE
                 popupView.findViewById<TextView>(R.id.telefoneCel).text = binding.telefoneCel.text
-
+            popupView.findViewById<TextView>(R.id.formacao).text = selectedEdu
 
 
             val popup = PopupWindow(popupView, 800, 800, true)
             popup.isOutsideTouchable = true
-            popup.setBackgroundDrawable(null) // ou um drawable se quiser fechar ao tocar fora
+            popup.setBackgroundDrawable(null)
             popup.showAtLocation(binding.root, Gravity.CENTER, 0, 0)
         }
 
